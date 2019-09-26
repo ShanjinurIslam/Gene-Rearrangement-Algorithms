@@ -52,11 +52,13 @@ int main()
         if (i != j)
         {
             bases = reverse(bases, i, j);
-            print(bases);
+            cout << "Reversal: "
+                 << "(" << i << "," << j << ")" << endl;
         }
         if (checkIdentity(bases))
             break;
     }
+    print(bases);
 
     return 0;
 }

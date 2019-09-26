@@ -34,6 +34,8 @@ int main()
                 {
                     b = t;
                     result = temp;
+                    cout << "Reversal: "
+                         << "(" << i << "," << j << ")" << endl;
                 }
             }
         }
