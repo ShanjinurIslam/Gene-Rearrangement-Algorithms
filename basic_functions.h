@@ -40,3 +40,16 @@ void print2(vector<int> bases)
     }
     cout << endl;
 }
+
+int breakPoints(vector<int> bases)
+{
+    int count = 0;
+    for (int i = 0; i < bases.size() - 1; i++)
+    {
+        if (!((bases[i] + 1 == bases[i + 1]) | (bases[i] == 1 + bases[i + 1])))
+        {
+            count++;
+        }
+    }
+    return count;
+}

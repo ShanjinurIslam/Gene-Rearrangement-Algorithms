@@ -4,19 +4,6 @@
 
 using namespace std;
 
-int breakPoints(vector<int> bases)
-{
-    int count = 0;
-    for (int i = 0; i < bases.size() - 1; i++)
-    {
-        if (!((bases[i] + 1 == bases[i + 1]) | (bases[i] == 1 + bases[i + 1])))
-        {
-            count++;
-        }
-    }
-    return count;
-}
-
 int main()
 {
     vector<int> bases;
@@ -31,22 +18,26 @@ int main()
         else
             bases.push_back(b);
     }
+    bases.push_back(bases.size());
     while (breakPoints(bases) > 0)
     {
         int b = breakPoints(bases);
         vector<int> result;
-        for(int i=0;i<bases.size()-1;i++){
-            for(int j=i+1;j<bases.size();j++){
+        for (int i = 0; i < bases.size() - 1; i++)
+        {
+            for (int j = i + 1; j < bases.size(); j++)
+            {
                 vector<int> temp = bases;
-                temp = reverse(temp,i,j);
+                temp = reverse(temp, i, j);
                 int t = breakPoints(temp);
-                if(t<b){
-                    b = t ;
+                if (t < b)
+                {
+                    b = t;
                     result = temp;
-                }          
+                }
             }
         }
-        bases = result ;
+        bases = result;
     }
     print2(bases);
     return 0;
